@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang ="en">
+
+<head>
+    <meta charset = "UTF-8">
+   <title> RPG - Dragon Slayer</title>
+   <link rel="stylesheet" href="style.css">
+</heaad>
+
+<body>
+    <div id = "game"> <!----Main Game conatiner-->
+
+        <div id = "stats"> <!----Player stats-->
+            <span class = "stat"> XP: <strong> <span id ="xpText">0</span> </strong></span>
+            <span class = "stat"> Health: <strong><span id = "healthText"> 100</span> </strong> </span>
+            <span class = "stat">Gold: <strong><span id = "goldText">50</span></strong> </span>
+
+        </div>
+
+        <div id = "controls"> <!----buttons/controls-->
+            <button id = "buttonStore"> Go to Store </button>
+            <button id = "buttonCave"> Go to Cave </button>
+            <button id = "buttonFight"> Fight Dragon!!!</button>
+        </div>
+
+        <div id ="monsterStats"> <!----Monster Stats-->
+            <span class = "stat"> Monster Name: <strong><span id = "monsterNameText"></span> </strong> </span>
+            <span class = "stat"> Monster Health: <strong><span id = "monsterHealthText"> </span> </strong> </span>
+        </div>
+
+        <div id = "'text"> <!----Welcome Message-->
+            Welcome Dragon Slayer. <br> <br>
+            You must defeat the dragon that is preventing people from leaving the town.
+            You are in the town square. 
+            <br> <br> Where do you want to go? <strong>Use the buttons above.</strong> 
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

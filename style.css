@@ -1,0 +1,76 @@
+
+
+body { /* Applying Global Style to the whole page */
+    margin: 0;
+    padding: 0;
+    font-family: georgia;
+    background-color: #1a1a1a;
+    color: #f0e6d2;
+}
+
+#game { /* Game container stylling */
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    background-color: #2a2a2a;
+    box-shadow: 0 0 20px #d4af37;
+}
+
+#stats { /* Player stats stylling */
+    display: flex;
+    justify-content: space-around;
+    background-color: #3a3a3a;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+/* 4. Individual stat items */
+.stat {
+  padding-right: 10px;
+  display: inline-block;
+}
+
+/* 6. Button styles */
+button {
+  background-color: #8b0000; 
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 10px;
+}
+button:hover {
+  background-color: #a40000; 
+}
+
+/* 8. Main text box */
+#text {
+  font-size: 18px;
+  background-color: #222;
+  padding: 15px;
+  border-left: 5px solid #d4af37; 
+  border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  #controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* 6. Monster stats area */
+#monsterStats {
+  display: none;               
+  border: 1px solid black;     
+  color: white;                
+  padding: 5px;                
+  background-color: red;       
+  margin-bottom: 10px;        
+}
