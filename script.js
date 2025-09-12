@@ -13,7 +13,7 @@ const text = document.querySelector("#text");
 const xpText = document.querySelector("#xpText");
 const healthText = document.querySelector("#healthText");
 const goldtext = document.querySelector("#goldText");
-const monsterStats = document.querySelector("#monsterStats")
+const monsterStats = document.querySelector("#monsterStats");
 const monsterNametext = document.querySelector("#monsterNameText");
 const monsterHealthText = document.querySelector("#monsterHealthText");
 
@@ -53,7 +53,7 @@ const monsters = [
         health: 500
     }
          
-];
+]
 
 // saw myself writting the same code again, this const and update function (ln53) helps solve that
 const locations = [
@@ -80,9 +80,10 @@ const locations = [
     {
         name: "fighting arena",
         "button text" : ["Attack", "Dodge", "Run"],
-        "button actions" : [attack, dodge, run]
+        "button functions" : [attack, dodge, run],
+        text: "you are fighting a dragon"
     }
-];
+]
      
 // Initialise Buttons
 
@@ -126,7 +127,7 @@ function buyHealth() {
             gold = gold - 10;
             health = health + 10
 
-            goldtext.innertext = gold;
+            goldtext.innerText = gold;
             healthText.innerText = health
     } else {
             text.innerText ="Not enough Gold"    
@@ -140,7 +141,7 @@ if (currentWeapon < weapons.length - 1) {
     if (gold >= 30) {
                 gold = gold - 10;
                 currentWeapon = currentWeapon + 1;
-                goldtext.innertext = gold
+                goldtext.innerText = gold
                 let newWeapon = weapons[currentWeapon].name;
                 text = "you have a " + newWeapon + ".";
                 inventory.push(newWeapon);
@@ -186,4 +187,17 @@ function fightDragon () {
 
 function goFight() {
     console.log("Fight slither")
+}
+
+
+function attack() {
+  console.log("You attack the dragon!");
+}
+
+function dodge() {
+  console.log("You dodge the dragon's attack!");
+}
+
+function run() {
+  console.log("You run away!");
 }
