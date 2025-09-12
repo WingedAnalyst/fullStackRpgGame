@@ -189,7 +189,6 @@ function goFight() {
     console.log("Fight slither")
 }
 
-
 function attack() {
   console.log("You attack the dragon!");
 }
