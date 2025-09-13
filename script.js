@@ -227,7 +227,7 @@ function attack() {
 }
 
 function dodge() {
-  text.innerText = "You Dodge an attack from " + monster[fighting].name + ".";
+  text.innerText = "You Dodge an attack from " + monsters[fighting].name + ".";
 }
 
 function defeatMonster() {
