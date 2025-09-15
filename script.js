@@ -310,6 +310,9 @@ function nextTutorialStep() {
             mentorBox.style.display = "none";
             tutorialMode = false;
         }, 3000);
+        button1.style.boxShadow = "";
+        button2.style.boxShadow = "";
+        button3.style.boxShadow = "";
     } 
     tutorialStep = tutorialStep + 1;
 }
