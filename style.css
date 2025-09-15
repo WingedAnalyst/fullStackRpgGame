@@ -33,7 +33,7 @@ body { /* Applying Global Style to the whole page */
   display: inline-block;
 }
 
-/* 6. Button styles */
+/*  Button styles */
 button {
   background-color: #8b0000; 
   color: white;
@@ -49,7 +49,7 @@ button:hover {
   background-color: #a40000; 
 }
 
-/* 8. Main text box */
+/*  Main text box */
 #text {
   font-size: 18px;
   background-color: #222;
@@ -58,6 +58,8 @@ button:hover {
   border-radius: 5px;
 }
 
+/* Small Screen Disply */
+
 @media (max-width: 600px) {
   #controls {
     flex-direction: column;
@@ -65,7 +67,7 @@ button:hover {
   }
 }
 
-/* 6. Monster stats area */
+/*  Monster stats area */
 #monsterStats {
   display: none;               
   border: 1px solid black;     
@@ -74,3 +76,25 @@ button:hover {
   background-color: red;       
   margin-bottom: 10px;        
 }
+
+/*  gameGuide styling area */
+
+#mentorBox {
+  display: none;
+  justify-content:space-around;
+  font-size: 18px;
+  background-color: #333;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  box-shadow: 0 0 10px;
+  color: #f3e385;
+}
+
+#mentorbox strong {
+  color: #ffd700;
+}
+
+
+

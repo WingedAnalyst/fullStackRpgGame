@@ -5,6 +5,8 @@ let currentWeapon = 0;
 let fighting;
 let monsterHealth;
 let inventory = ["stick"];
+let tutorialMode = true;
+let tutorialStep = 0;
 
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector ("#button2");
@@ -16,6 +18,8 @@ const goldtext = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterNametext = document.querySelector("#monsterNameText");
 const monsterHealthText = document.querySelector("#monsterHealthText");
+const mentorBox = document.querySelector("#mentorBox");
+const mentorText = document.querySelector("#mentorText");
 
 const weapons = [
     {
@@ -106,6 +110,7 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
+nextTutorialStep();
 
 //Creating Functions for the abovr buttons
 
@@ -122,17 +127,27 @@ function update (location) {
 
 function goToTown () {
     update(locations[0]);
-
+    mentorBox.style.display ="none";
+    button3.style.boxShadow = "";
+   
 }
 
 
 function goStore () {
+    if (tutorialMode && tutorialStep === 1) {
+    nextTutorialStep();
+}
     update(locations[1]);
-
+ 
 }
 
 
 function goCave () {
+    mentorBox.style.display = "block";
+        if (tutorialMode && tutorialStep === 3) {
+    nextTutorialStep();
+    
+}
     update(locations[2])
 
 }
@@ -152,8 +167,10 @@ function buyHealth() {
 }
 
 function buyWeapon() {
-if (currentWeapon < weapons.length - 1) {
-
+if (currentWeapon < weapons.length - 3) {
+    if (tutorialMode && tutorialStep === 2) {
+    nextTutorialStep();
+}
     if (gold >= 30) {
                 gold = gold - 30;
                 currentWeapon = currentWeapon + 1;
@@ -209,6 +226,9 @@ function goFight() {
    monsterStats.style.display = "block";
    monsterNametext.innerText = monsters[fighting].name;
    monsterHealthText.innerText = monsterHealth
+    if (tutorialMode && tutorialStep === 4) {
+    nextTutorialStep();
+    }
 }
 
 function attack() {
@@ -231,7 +251,11 @@ function dodge() {
 }
 
 function defeatMonster() {
+    if (tutorialMode && tutorialStep === 5) {
+    nextTutorialStep();
+    }
   gold = gold + Math.floor(monsters[fighting].level * 6.7);
+  xp = xp + Math.floor(monsters[fighting].lvl * 9);
   goldtext.innerText = gold;
   xpText.innerText = xp;
   update(locations[4]);
@@ -253,4 +277,40 @@ function playAgain() {
   goToTown();
 }
 
+
+
+
+//guide function 
+function nextTutorialStep() {
+    if (tutorialStep === 0) {
+        mentorBox.style.display = "block";
+        button1.style.boxShadow = "0 0 10px #d4af37";
+    } else if (tutorialStep === 1) {
+        mentorText.innerText = "Now buy a Weapon.";
+        button2.style.boxShadow = "0 0 10px #d4af37";
+        button1.style.boxShadow = "";
+    } else if (tutorialStep === 2) {
+        mentorText.innerText = "Great! Head to the Cave to face your first challenge.  You will find the enterence to the cave in the town square! \n \nRemember: once you have a better weapon, you can sell your weaker weapon!";
+        button3.style.boxShadow = "0 0 10px #d4af37";
+        button1.style.boxShadow = "";
+        button2.style.boxShadow = "";
+    } else if (tutorialStep === 3) {
+        mentorText.innerText = "Now Choose a Monster to Fight! Start with 4Arms!";
+        button1.style.boxShadow = "0 0 10px #d4af37";
+        button2.style.boxShadow = "";
+        button3.style.boxShadow = "";
+    } else if (tutorialStep === 4) {
+        mentorText.innerText = "Now you can choose to Attack/dodge and Run \n Remember if you run the monster heals while you DO NOT! ";
+        button1.style.boxShadow = "0 0 10px #d4af37";
+        button3.style.boxShadow = "0 0 10px #f37e7eff"
+        button2.style.boxShadow = "";
+    } else if (tutorialStep === 5) {
+        mentorText.innerText = "Well done, warrior. You are ready. I will leave you now.";
+        setTimeout(() => {
+            mentorBox.style.display = "none";
+            tutorialMode = false;
+        }, 3000);
+    } 
+    tutorialStep = tutorialStep + 1;
+}
 
