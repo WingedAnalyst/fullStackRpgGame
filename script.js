@@ -277,42 +277,37 @@ function playAgain() {
   goToTown();
 }
 
-
-
+function clearGlow() {
+    button1.style.boxShadow = "";
+    button2.style.boxShadow = "";
+    button3.style.boxShadow = "";
+}
 
 //guide function 
 function nextTutorialStep() {
+    clearGlow();
     if (tutorialStep === 0) {
         mentorBox.style.display = "block";
         button1.style.boxShadow = "0 0 10px #d4af37";
     } else if (tutorialStep === 1) {
         mentorText.innerText = "Now buy a Weapon.";
         button2.style.boxShadow = "0 0 10px #d4af37";
-        button1.style.boxShadow = "";
     } else if (tutorialStep === 2) {
         mentorText.innerText = "Great! Head to the Cave to face your first challenge.  You will find the enterence to the cave in the town square! \n \nRemember: once you have a better weapon, you can sell your weaker weapon!";
         button3.style.boxShadow = "0 0 10px #d4af37";
-        button1.style.boxShadow = "";
-        button2.style.boxShadow = "";
     } else if (tutorialStep === 3) {
         mentorText.innerText = "Now Choose a Monster to Fight! Start with 4Arms!";
-        button1.style.boxShadow = "0 0 10px #d4af37";
-        button2.style.boxShadow = "";
-        button3.style.boxShadow = "";
+        button1.style.boxShadow = "0 0 10px #d4af37";;
     } else if (tutorialStep === 4) {
         mentorText.innerText = "Now you can choose to Attack/dodge and Run \n Remember if you run the monster heals while you DO NOT! ";
         button1.style.boxShadow = "0 0 10px #d4af37";
         button3.style.boxShadow = "0 0 10px #f37e7eff"
-        button2.style.boxShadow = "";
     } else if (tutorialStep === 5) {
         mentorText.innerText = "Well done, warrior. You are ready. I will leave you now.";
         setTimeout(() => {
             mentorBox.style.display = "none";
             tutorialMode = false;
         }, 3000);
-        button1.style.boxShadow = "";
-        button2.style.boxShadow = "";
-        button3.style.boxShadow = "";
     } 
     tutorialStep = tutorialStep + 1;
 }
