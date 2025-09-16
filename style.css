@@ -1,5 +1,4 @@
 
-
 body { /* Applying Global Style to the whole page */
     margin: 0;
     padding: 0;
@@ -16,6 +15,30 @@ body { /* Applying Global Style to the whole page */
     border-radius: 10px;
     background-color: #2a2a2a;
     box-shadow: 0 0 20px #d4af37;
+}
+
+
+
+#heroSection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#heroImage {
+  width: 400px;
+  height: 150px;
+  border-radius: 5%;
+  border: 3px solid #f00f0f;
+  box-shadow: 0 0 15px #ff7d49;
+}
+
+#gameTitle {
+  text-align: center;
+  font-size: 32px;
+  color: #ffd700;
+  text-shadow: 2px 2px 5px black;
+  margin-bottom: 20px;
 }
 
 #stats { /* Player stats stylling */
@@ -67,15 +90,48 @@ button:hover {
   }
 }
 
-/*  Monster stats area */
+
 #monsterStats {
-  display: none;               
-  border: 1px solid black;     
-  color: white;                
-  padding: 5px;                
-  background-color: red;       
-  margin-bottom: 10px;        
+  display: none;
+  background: linear-gradient(145deg, #5a0000, #2a0000); 
+  border: 2px solid #d4af37;  
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px 0;
+  color: #ffd700; 
+  font-size: 18px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
 }
+
+
+#monsterStats .stat {
+  display: block;
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+/*  monster name */
+#monsterNameText {
+  color: #ff5555;  
+  font-size: 20px;
+  text-shadow: 1px 1px 4px black;
+}
+
+/* Monster stats bar */
+#monsterHealthText {
+  display: inline-block;
+  min-width: 40px;
+  padding: 5px 10px;
+  background: #222;
+  border: 1px solid #ff3333;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+}
+
+
+
 
 /*  gameGuide styling area */
 
@@ -92,9 +148,52 @@ button:hover {
   color: #f3e385;
 }
 
-#mentorbox strong {
+#mentorBox strong {
   color: #ffd700;
 }
 
 
+#casino {
+  display: none;
+  background-color: #222;
+  padding: 20px;
+  margin-top: 20px;
+  border: 2px solid #d4af37;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#casino input {
+  padding: 8px;
+  width: 60px;
+  text-align: center;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+#casino button {
+  background-color: #006400;
+}
+
+#casinoResult {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: gold;
+}
+
+
+#footerHint {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  background: #111;
+  padding: 10px;
+  border-top: 2px solid #d4af37;
+  color: #ccc;
+}
 
