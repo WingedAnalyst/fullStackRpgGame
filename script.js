@@ -282,9 +282,9 @@ function defeatMonster() {
     nextTutorialStep();
     }
   let goldEarned = gold + Math.floor(monsters[fighting].level * 6.7);
-  let xpEarned = Math.floor(monsters[fighting].lvl * 9);
-  xp = xp + xpEarned
-  gold = goldEarned + gold
+  let xpEarned = Math.floor(monsters[fighting].level * 9);
+  xp = xp + xpEarned;
+  gold = goldEarned + gold;
   goldText.innerText = gold;
   flashGold(goldEarned);
   xpText.innerText = xp;
