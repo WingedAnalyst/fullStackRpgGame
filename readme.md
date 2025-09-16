@@ -15,9 +15,10 @@ You start with:
 - A trusty Stick as your first weapon
 
 Use the buttons to:
-- Go to the Store: Buy health or better weapons
-- Go to the Cave: Fight monsters like 4Arms and Slither
-- Fight the Dragon: Face the final boss when you're ready!
+- Go to the Store: Buy health or better weapons, or sell weapons and even XP for gold if needed
+- Go to the Cave: Fight monsters like 4Arms, Slither, and eventually the Dragon
+- Play Bet-Shet (Mini Casino): Test your luck and win or lose gold
+- Fight / Dodge / Run: Combat options when battling monsters
 
 Combat:
 - You can Attack, Dodge, or Run
@@ -25,6 +26,7 @@ Combat:
 - Monsters have different health and damage levels
 - Winning gives you gold and XP
 - Losing... means you die ☠ but don’t worry, you can play again!
+- More XP increases your weapons damgage
 
 🛠️ Features
 - 💰 Gold & inventory system
@@ -32,3 +34,9 @@ Combat:
 - 🧌 Different enemies with unique stats
 - ⚔️ Combat system with attack, dodge, and death conditions
 - 🏆 XP system and play-again option
+- Sell XP for gold when you run out of money
+- Visual feedback when gold or XP changes (flashes red/green)
+
+🧙 Game Guide (Mentor)
+- Step-by-step guide at the start to help you learn the game
+- Can be turned off

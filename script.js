@@ -9,9 +9,10 @@ let tutorialMode = true;
 let tutorialStep = 0;
 
 const button1 = document.querySelector("#button1");
-const button2 = document.querySelector ("#button2");
+const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
 const button4 = document.querySelector("#button4");
+const endGuideBtn = document.querySelector("#endGuideBtn");
 const text = document.querySelector("#text");
 const xpText = document.querySelector("#xpText");
 const healthText = document.querySelector("#healthText");
@@ -30,32 +31,33 @@ const originalHeroSrc = heroImage.src;
 const weaponText = document.getElementById("weaponText");
 const weaponImage = document.getElementById("weaponImage")
 
+
 const weapons = [
     {
-        name : "stick",
+        name: "stick",
         power: 5,
-        fileName: "assets/stick.jpg" 
+        fileName: "assets/stick.jpg"
     },
     {
         name: "dagger",
         power: 30,
-        fileName: "assets/dagger.jpg" 
+        fileName: "assets/dagger.jpg"
     },
     {
         name: "claw hammer",
         power: 50,
-         fileName: "assets/clawHammer.jpg" 
+        fileName: "assets/clawHammer.jpg"
     },
     {
         name: "sword",
         power: 100,
-         fileName: "assets/sword.webp" 
-    }        
+        fileName: "assets/sword.webp"
+    }
 ];
 
 const monsters = [
     {
-        name : "4arms",
+        name: "4arms",
         level: 2,
         health: 100
     },
@@ -69,21 +71,21 @@ const monsters = [
         level: 20,
         health: 400
     }
-         
+
 ]
 
 // saw myself writting the same code again, this const and update function (ln53) helps solve that
 const locations = [
     {
         name: "town Square",
-        "button text": ["Go to Store","Go to Cave", "Play Bet-Shet"],
+        "button text": ["Go to Store", "Go to Cave", "Play Bet-Shet"],
         "button functions": [goStore, goCave, playBetShet],
         text: "You are in the Town Square, Monsters are in the cave shhhhh......."
 
     },
 
     {
-        name : "store",
+        name: "store",
         "button text": ["Buy 10 health (10 Gold)", "Buy Weapon (30 gold)", "Sell Weapon"],
         "button functions": [buyHealth, buyWeapon, sellWeapon],
         text: "You Enter the Store"
@@ -91,53 +93,54 @@ const locations = [
     {
         name: "cave",
         "button text": ["Fight Armed beast: 4Arms", "Fight Fanged Beast: Slither", "Fight Dragon"],
-        "button functions" : [fight4Arms, fightSlither, fightDragon],
+        "button functions": [fight4Arms, fightSlither, fightDragon],
         text: "You are in the cave and you see some monsters"
     },
     {
         name: "fighting arena",
-        "button text" : ["Attack", "Dodge", "Run"],
-        "button functions" : [attack, dodge, goToTown],
-        text: "you are fighting a monster" 
-    }, 
+        "button text": ["Attack", "Dodge", "Run"],
+        "button functions": [attack, dodge, goToTown],
+        text: "you are fighting a monster"
+    },
     {
 
         name: "kill Monster",
-        "button text" : ["Go to Cave", "Play Bet-Shet", "Go to Store"],
-        "button functions" : [goCave, playBetShet, goStore],
+        "button text": ["Go to Cave", "Play Bet-Shet", "Go to Store"],
+        "button functions": [goCave, playBetShet, goStore],
         text: "The monster screams 'AhhhhhGRRRRRrr' as it dies, You gain XP and GOLD"
     },
     {
 
         name: "lose",
-        "button text" : ["Play Again?", "Go to Town Square", "Go to Store"],
-        "button functions" : [playAgain, goToTown, goStore],
+        "button text": ["Play Again?", "Go to Town Square", "Go to Store"],
+        "button functions": [playAgain, goToTown, goStore],
         text: "You Die ☠"
     },
     {
         name: "betShet",
-        "button text" : ["Guess a Num", "Go to Town Square" , "Go to Store"],
-        "button functions" : [playBetShet, goToTown , goStore],
-        text : " Welcome to the Bet-Shet! Try your luck by guessing a number between 1 and 5 \n \n Disclaimer: Izzat at Risk"
+        "button text": ["Guess a Num", "Go to Town Square", "Go to Store"],
+        "button functions": [playBetShet, goToTown, goStore],
+        text: " Welcome to the Bet-Shet! Try your luck by guessing a number between 1 and 5 \n \n Disclaimer: Izzat at Risk"
     }
 ]
 
-     
+
 // Initialise Buttons
 
 button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = playBetShet;
 button4.onclick = goToTown;
+endGuideBtn.onclick = endGuide;
 
 updateCurrentWeapon();
 nextTutorialStep();
 
 //Creating Functions for the abovr buttons
 
-function update (location) {
+function update(location) {
     monsterStats.style.display = "none";
-    casino.style.display = "none"; 
+    casino.style.display = "none";
     button1.innerText = location["button text"][0];
     button2.innerText = location["button text"][1];
     button3.innerText = location["button text"][2];
@@ -147,13 +150,13 @@ function update (location) {
     text.innerText = location.text;
 }
 
-function goToTown () {
+function goToTown() {
     if (tutorialMode && tutorialStep === 3) {
         nextTutorialStep();
         button4.style.boxShadow = "";
     } else if (!tutorialMode) {
-                mentorBox.style.display ="none";
-                button4.style.boxShadow = "";
+        mentorBox.style.display = "none";
+        button4.style.boxShadow = "";
     }
     update(locations[0]);
 
@@ -161,66 +164,75 @@ function goToTown () {
 }
 
 
-function goStore () {
+function goStore() {
     if (tutorialMode && tutorialStep === 1) {
-    nextTutorialStep();
+        nextTutorialStep();
     }
     update(locations[1]);
-     heroImage.src = "assets/Store.png";
- 
+    heroImage.src = "assets/Store.png";
+    if (gold < 30 ) {
+   button2.innerText = "Sell 30 XP for 10 Gold"
+   button2.onclick = sellXp
+    } else {
+        button2.innerText = "Buy Weapon (30 Gold)";
+        button2.onclick = buyWeapon;
+    }
+
 }
 
 
-function goCave () {
+function goCave() {
     mentorBox.style.display = "block";
     heroImage.src = "assets/caveImg.jpg";
-        if (tutorialMode && tutorialStep === 4) {
-    nextTutorialStep();
-    
-}
-    update(locations[2])
+    if (tutorialMode && tutorialStep === 4) {
+        nextTutorialStep();
+
+    } else {mentorBox.style.display = "none";}
+
+update(locations[2]);
 
 }
 
 function buyHealth() {
-    if (gold >=10) {
-            gold = gold - 10;
-            health = health + 10;
-            flashGold(-10);
-            goldText.innerText = gold;
-            healthText.innerText = health
+    if (gold >= 10) {
+        gold = gold - 10;
+        health = health + 10;
+        flashGold(-10);
+        goldText.innerText = gold;
+        healthText.innerText = health
     } else {
-            text.innerText ="Not enough Gold"    
-        }
-        
+        text.innerText = "Not enough Gold"
+        sellXp ();
+    }
+
 }
 
 function buyWeapon() {
-if (currentWeapon < weapons.length - 1) {
-    if (tutorialMode && tutorialStep === 2) {
-    nextTutorialStep();
-}
-    if (gold >= 30) {
-                gold = gold - 30;
-                currentWeapon = currentWeapon + 1;
-                goldText.innerText = gold
-                flashGold(-30);
-                let newWeapon = weapons[currentWeapon].name;
-                text.innerText = "You have purchaced a " + newWeapon + ". ";
-                inventory.push(newWeapon);
-                updateCurrentWeapon();
-                text.innerText = text.innerText + "In your Inventory you have: " + inventory;
-        }   else {
-                text.innerText = "You do no have Enough gold to buy a weapon"
-            }    
-    } else { 
+    if (currentWeapon < weapons.length - 1) {
+        if (tutorialMode && tutorialStep === 2) {
+            nextTutorialStep();
+        }
+        if (gold >= 30) {
+            gold = gold - 30;
+            currentWeapon = currentWeapon + 1;
+            goldText.innerText = gold
+            flashGold(-30);
+            let newWeapon = weapons[currentWeapon].name;
+            text.innerText = "You have purchaced a " + newWeapon + ". ";
+            inventory.push(newWeapon);
+            updateCurrentWeapon();
+            text.innerText = text.innerText + "In your Inventory you have: " + inventory;
+        } else {
+            text.innerText = "You do no have Enough gold to buy a weapon"
+        }
+    } else {
         text.innerText = "you already have MAX Weapons"
         button2.innerText = "sell your Weapon for 15 Gold"
         button2.onclick = sellWeapon;
-        }
-} 
+    }
+}
 
-function sellWeapon () {
+function sellWeapon() {
     if (inventory.length > 1) {
         gold = gold + 15;
         goldText.innerText = gold;
@@ -229,17 +241,18 @@ function sellWeapon () {
         let currentWeapon = inventory.shift();
         text.innerText = "You have sold a " + currentWeapon + ".";
         text.innerText = text.innerText + "in your inventory you have " + inventory
-    
+
     } else {
         text.innerText = "Not wise to sell your only weapon....."
-    } 
+    }
 }
 
 
 
 function fight4Arms() {
     fighting = 0;
-    goFight ();
+    goFight();
+    button4.style.display = "none";
     heroImage.src = "assets/4Arms.jpg";
     text.innerText = "you are fighting 4Arms";
 }
@@ -248,103 +261,105 @@ function fightSlither() {
     fighting = 1;
     heroImage.src = "assets/Slither.png";
     goFight();
-     text.innerText = "you are fighting Slither";
+    button4.style.display = "none";
+    text.innerText = "you are fighting Slither";
 }
 
-function fightDragon () {
+function fightDragon() {
     fighting = 2;
     heroImage.src = "assets/dragon.png";
-    goFight ();
-     text.innerText = "you are fighting The Dragon";
+    goFight();
+    button4.style.display = "none";
+    text.innerText = "you are fighting The Dragon";
 }
 
 function goFight() {
-   update (locations[3]);
-   monsterHealth = monsters[fighting].health;
-   monsterStats.style.display = "block";
-   monsterNametext.innerText = monsters[fighting].name;
-   monsterHealthText.innerText = monsterHealth
+    update(locations[3]);
+    monsterHealth = monsters[fighting].health;
+    monsterStats.style.display = "block";
+    monsterNametext.innerText = monsters[fighting].name;
+    monsterHealthText.innerText = monsterHealth
     if (tutorialMode && tutorialStep === 5) {
-    nextTutorialStep();
+        nextTutorialStep();
     }
 }
 
 function attack() {
-  text.innerText = "The " + monsters[fighting].name + " attacks." 
-  text.innerText = text.innerText + "You attack it with your " + weapons[currentWeapon].name + ".";
-  health = health - monsters[fighting].level;
-  monsterHealth = monsterHealth - weapons[currentWeapon].power + Math.floor(Math.random()* xp) + 1;
-  monsterHealthText.innerText = monsterHealth;
-  healthText.innerText = health;
+    text.innerText = "The " + monsters[fighting].name + " attacks."
+    text.innerText = text.innerText + "You attack it with your " + weapons[currentWeapon].name + ".";
+    health = health - monsters[fighting].level;
+    monsterHealth = monsterHealth - weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+    monsterHealthText.innerText = monsterHealth;
+    healthText.innerText = health;
     if (health <= 0) {
         lose();
     } else if (monsterHealth <= 0) {
-        defeatMonster ();
+        defeatMonster();
     }
 
 }
 
 function dodge() {
-  text.innerText = "You Dodge an attack from " + monsters[fighting].name + ".";
+    text.innerText = "You Dodge an attack from " + monsters[fighting].name + ".";
 }
 
 function defeatMonster() {
     if (tutorialMode && tutorialStep === 6) {
-    nextTutorialStep();
+        nextTutorialStep();
     }
-  let goldEarned = gold + Math.floor(monsters[fighting].level * 6.7);
-  let xpEarned = Math.floor(monsters[fighting].level * 9);
-  xp = xp + xpEarned;
-  gold = goldEarned + gold;
-  goldText.innerText = gold;
-  flashGold(goldEarned);
-  xpText.innerText = xp;
-   flashXp(xpEarned);
-  update(locations[4]);
+    let goldEarned = Math.floor(monsters[fighting].level * 6.7);
+    let xpEarned = Math.floor(monsters[fighting].level * 9);
+    xp = xp + xpEarned;
+    gold = goldEarned + gold;
+    goldText.innerText = gold;
+    flashGold(goldEarned);
+    xpText.innerText = xp;
+    flashXp(xpEarned);
+    update(locations[4]);
 }
 
 function lose() {
-  update(locations[5]);
+    update(locations[5]);
 }
 
 function playAgain() {
-  xp = 0;
-  health = 100;
-  gold = 50;
-  currentWeapon = 0;
-  inventory = ["stick"];
-  goldText.innerText = gold;
-  healthText.innerText = health;
-  xpText.innerText = xp;
-  goToTown();
+    xp = 0;
+    health = 100;
+    gold = 50;
+    currentWeapon = 0;
+    inventory = ["stick"];
+    goldText.innerText = gold;
+    healthText.innerText = health;
+    xpText.innerText = xp;
+    goToTown();
 }
 
 function playBetShet() {
-     update(locations[6]);
+    update(locations[6]);
     casino.style.display = "block";
     heroImage.src = "assets/Casino.png";
 
-    guessBtn.onclick = function() {
+    guessBtn.onclick = function () {
         let guess = guessInput.value;
         guess = Number(guess);
-        if (!guess || guess <1 || guess >5) {
+        if (!guess || guess < 1 || guess > 5) {
             casinoResult.innerText = " ZERO Izzat! Please Enter a valid number"
-        return;
+            return;
         }
 
-        let luckyNumber = Math.floor(Math.random() *5) + 1
+        let luckyNumber = Math.floor(Math.random() * 5) + 1
 
         if (luckyNumber === guess) {
             gold = gold + 20;
             goldText.innerText = gold;
             flashGold(20);
-            casinoResult.innerText = " 100 Izzat! You win 20 gold \n \n Your Guess was " + guess+ " and the corect number was " + luckyNumber;
+            casinoResult.innerText = " 100 Izzat! You win 20 gold \n \n Your Guess was " + guess + " and the corect number was " + luckyNumber;
             casinoResult.style.color = "green"
         } else {
             gold = gold - 10;
             goldText.innerText = gold;
             flashGold(-10);
-            casinoResult.innerText = "Zero-Shiroo! You lose 10 gold! \n \n Your Guess was " + guess+ " and the corect number was " + luckyNumber;
+            casinoResult.innerText = "Zero-Shiroo! You lose 10 gold! \n \n Your Guess was " + guess + " and the corect number was " + luckyNumber;
             casinoResult.style.color = "red"
         }
     }
@@ -387,7 +402,7 @@ function nextTutorialStep() {
         button1.style.display = "none";
         button3.style.display = "none";
         button4.style.display = "none";
-    }else if (tutorialStep === 4) {
+    } else if (tutorialStep === 4) {
         mentorText.innerText = "Now Choose a Monster to Fight! Start with 4Arms!";
         button1.style.boxShadow = "0 0 10px #d4af37";
     } else if (tutorialStep === 5) {
@@ -395,37 +410,62 @@ function nextTutorialStep() {
         button1.style.boxShadow = "0 0 10px #d4af37";
         button3.style.boxShadow = "0 0 10px #f37e7eff"
     } else if (tutorialStep === 6) {
-        mentorText.innerText = "Well done, warrior. You are ready. I will leave you now.";
-        setTimeout(() => {
-            mentorBox.style.display = "none";
-            tutorialMode = false;
-        }, 3000);
-    } 
-    tutorialStep = tutorialStep + 1; 
+        lastStep();
+    }
+    tutorialStep = tutorialStep + 1;
+}
+
+
+function lastStep() {
+    mentorText.innerText = "Well done, warrior. You are ready. I will leave you now.";
+    tutorialMode = false;
+    setTimeout(() => {
+        mentorBox.style.display = "none";      
+    }, 800);
 }
 
 function flashGold(change) {
-  if (change > 0) {
-    goldText.style.color = "green";
-  } else if (change < 0) {
-    goldText.style.color = "red";
-  } setTimeout(() => {
-    goldText.style.color = "white";
-  }, 500);
+    if (change > 0) {
+        goldText.style.color = "green";
+    } else if (change < 0) {
+        goldText.style.color = "red";
+    } setTimeout(() => {
+        goldText.style.color = "white";
+    }, 500);
 }
 
 function flashXp(change) {
-  if (change > 0) {
-    goldText.style.color = "green";
-  } else if (change < 0) {
-    goldText.style.color = "red";
-  } setTimeout(() => {
-    goldText.style.color = "white";
-  }, 500);
+    if (change > 0) {
+        goldText.style.color = "green";
+    } else if (change < 0) {
+        goldText.style.color = "red";
+    } setTimeout(() => {
+        goldText.style.color = "white";
+    }, 500);
 }
 
 function updateCurrentWeapon() {
-let weapon = weapons[currentWeapon];
+    let weapon = weapons[currentWeapon];
     weaponText.innerText = weapon.name;
     weaponImage.src = weapon.fileName;
 }
+
+function sellXp () {
+    if (xp >= 30) {
+        gold = gold + 10;
+        xp = xp - 30;
+        goldText.innerText = gold;
+        xpText.innerText = xp;
+        text.innerText = "Remember selling your XP may reduce the Weapons' Power!"
+    } else {
+        text.innerText = "Not enough XP"
+    }
+}
+
+function endGuide () {
+   lastStep();
+   clearGlow ();
+    text.innerText = " CEO/SDE wont help you now, you are on your own warrior!!"
+    tutorialMode = false;
+}
+

@@ -26,8 +26,8 @@ body { /* Applying Global Style to the whole page */
 }
 
 #heroImage {
-  width: 400px;
-  height: 150px;
+  width: 55%;
+  height: 15%;
   border-radius: 5%;
   border: 3px solid #f00f0f;
   box-shadow: 0 0 15px #ff7d49;
@@ -50,11 +50,12 @@ body { /* Applying Global Style to the whole page */
     margin-bottom: 50px;
 }
 
-/* 4. Individual stat items */
 .stat {
-  padding-right: 10px;
-  display: inline-block;
+  display: flex;
+  align-items: center;  
+  gap: 6px;             
 }
+
 
 /*  Button styles */
 button {
@@ -202,7 +203,21 @@ button:hover {
     height: 45px;
     border-radius: 50%; 
     border: 2px solid gold;
+    object-fit: contain; 
     margin-left: 5px;
     vertical-align: middle;
     box-shadow: 0 0 5px #ffd700;
+}
+
+
+#weaponImage {
+  vertical-align: middle;   
+  position: relative;
+  top: -2px;                
+}
+
+#endGuideBtn {
+  position: absolute;
+  bottom: 10px;         
+  left: 10px
 }
