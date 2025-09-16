@@ -1,6 +1,8 @@
 
 **🐉 Dragon Slayer RPG**
 
+click to play - https://wingedanalyst.github.io/fullStackRpgGame/
+
 Welcome to Dragon Slayer, a simple browser-based role-playing game (RPG) where your goal is to defeat monsters and ultimately slay the mighty Dragon!
 This game was built using plain HTML, CSS, and JavaScript, making it a great learning project for beginners.
 

@@ -197,3 +197,12 @@ button:hover {
   color: #ccc;
 }
 
+.smallWeapon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; 
+    border: 2px solid gold;
+    margin-left: 5px;
+    vertical-align: middle;
+    box-shadow: 0 0 5px #ffd700;
+}

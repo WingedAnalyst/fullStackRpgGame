@@ -27,23 +27,29 @@ const guessBtn = document.getElementById("guessBtn");
 const guessInput = document.getElementById("guessInput");
 const casinoResult = document.getElementById("casinoResult");
 const originalHeroSrc = heroImage.src;
+const weaponText = document.getElementById("weaponText");
+const weaponImage = document.getElementById("weaponImage")
 
 const weapons = [
     {
         name : "stick",
-        power: 5
+        power: 5,
+        fileName: "assets/stick.jpg" 
     },
     {
         name: "dagger",
-        power: 30
+        power: 30,
+        fileName: "assets/dagger.jpg" 
     },
     {
         name: "claw hammer",
-        power: 50
+        power: 50,
+         fileName: "assets/clawHammer.jpg" 
     },
     {
         name: "sword",
-        power: 100
+        power: 100,
+         fileName: "assets/sword.webp" 
     }        
 ];
 
@@ -131,6 +137,7 @@ nextTutorialStep();
 
 function update (location) {
     monsterStats.style.display = "none";
+    casino.style.display = "none"; 
     button1.innerText = location["button text"][0];
     button2.innerText = location["button text"][1];
     button3.innerText = location["button text"][2];
@@ -201,6 +208,7 @@ if (currentWeapon < weapons.length - 1) {
                 let newWeapon = weapons[currentWeapon].name;
                 text.innerText = "You have purchaced a " + newWeapon + ". ";
                 inventory.push(newWeapon);
+                updateCurrentWeapon();
                 text.innerText = text.innerText + "In your Inventory you have: " + inventory;
         }   else {
                 text.innerText = "You do no have Enough gold to buy a weapon"
@@ -217,13 +225,13 @@ function sellWeapon () {
         gold = gold + 15;
         goldText.innerText = gold;
         flashGold(15);
-
+        updateCurrentWeapon();
         let currentWeapon = inventory.shift();
         text.innerText = "You have sold a " + currentWeapon + ".";
         text.innerText = text.innerText + "in your inventory you have " + inventory
     
     } else {
-        text.innerText = "You cannot sell a Stick, not wise to sell your only weapon....."
+        text.innerText = "Not wise to sell your only weapon....."
     } 
 }
 
@@ -414,4 +422,10 @@ function flashXp(change) {
   } setTimeout(() => {
     goldText.style.color = "white";
   }, 500);
+}
+
+function updateCurrentWeapon() {
+let weapon = weapons[currentWeapon];
+    weaponText.innerText = weapon.name;
+    weaponImage.src = weapon.fileName;
 }
