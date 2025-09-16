@@ -130,7 +130,7 @@ button2.onclick = goCave;
 button3.onclick = playBetShet;
 button4.onclick = goToTown;
 
-
+updateCurrentWeapon();
 nextTutorialStep();
 
 //Creating Functions for the abovr buttons
