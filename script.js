@@ -92,7 +92,7 @@ const locations = [
         name: "fighting arena",
         "button text" : ["Attack", "Dodge", "Run"],
         "button functions" : [attack, dodge, goToTown],
-        text: "you are fighting a dragon"
+        text: "you are fighting a monster" 
     }, 
     {
 
@@ -233,18 +233,21 @@ function fight4Arms() {
     fighting = 0;
     goFight ();
     heroImage.src = "assets/4Arms.jpg";
+    text.innerText = "you are fighting 4Arms";
 }
 
 function fightSlither() {
     fighting = 1;
     heroImage.src = "assets/Slither.png";
     goFight();
+     text.innerText = "you are fighting Slither";
 }
 
 function fightDragon () {
     fighting = 2;
     heroImage.src = "assets/dragon.png";
     goFight ();
+     text.innerText = "you are fighting The Dragon";
 }
 
 function goFight() {
