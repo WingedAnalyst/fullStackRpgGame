@@ -170,9 +170,9 @@ function goStore() {
     }
     update(locations[1]);
     heroImage.src = "assets/Store.png";
-    if (gold < 30 ) {
-   button2.innerText = "Sell 30 XP for 10 Gold"
-   button2.onclick = sellXp
+    if (gold < 30) {
+        button2.innerText = "Sell 30 XP for 10 Gold"
+        button2.onclick = sellXp
     } else {
         button2.innerText = "Buy Weapon (30 Gold)";
         button2.onclick = buyWeapon;
@@ -187,9 +187,9 @@ function goCave() {
     if (tutorialMode && tutorialStep === 4) {
         nextTutorialStep();
 
-    } else {mentorBox.style.display = "none";}
+    } else { mentorBox.style.display = "none"; }
 
-update(locations[2]);
+    update(locations[2]);
 
 }
 
@@ -202,7 +202,7 @@ function buyHealth() {
         healthText.innerText = health
     } else {
         text.innerText = "Not enough Gold"
-        sellXp ();
+        sellXp();
     }
 
 }
@@ -420,7 +420,7 @@ function lastStep() {
     mentorText.innerText = "Well done, warrior. You are ready. I will leave you now.";
     tutorialMode = false;
     setTimeout(() => {
-        mentorBox.style.display = "none";      
+        mentorBox.style.display = "none";
     }, 800);
 }
 
@@ -450,7 +450,7 @@ function updateCurrentWeapon() {
     weaponImage.src = weapon.fileName;
 }
 
-function sellXp () {
+function sellXp() {
     if (xp >= 30) {
         gold = gold + 10;
         xp = xp - 30;
@@ -462,9 +462,9 @@ function sellXp () {
     }
 }
 
-function endGuide () {
-   lastStep();
-   clearGlow ();
+function endGuide() {
+    lastStep();
+    clearGlow();
     text.innerText = " CEO/SDE wont help you now, you are on your own warrior!!"
     tutorialMode = false;
 }

@@ -1,82 +1,84 @@
 <!DOCTYPE html>
-<html lang ="en">
+<html lang="en">
 
 <head>
-    <meta charset = "UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title> RPG - Dragon Slayer</title>
-<link rel="stylesheet" href="style.css">
+    <title> RPG - Dragon Slayer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-     <div id="tittleGame">
+    <div id="tittleGame">
         <h1 id="gameTitle">🐉 Dragon Slayer RPG 🗡️</h1>
 
-    <div id = "game"> <!----Main Game conatiner-->
-        
-        
-        <div id = "stats"> <!----Player stats-->
-            <span class = "stat"> XP: <strong> <span id ="xpText">0</span> </strong></span>
-            <span class = "stat"> Health: <strong><span id = "healthText"> 100</span> </strong> </span>
-            <span class = "stat">Gold: <strong><span id = "goldText">50</span></strong> </span>
-             <span class="stat"> Weapon: 
-        <strong>
-            <span id="weaponText">Stick</span>
-            <img id="weaponImage" src="assets/weapons/stick.png" alt="Weapon" class="smallWeapon">
-        </strong>
-    </span>
-            
+        <div id="game"> <!----Main Game conatiner-->
 
+
+            <div id="stats"> <!----Player stats-->
+                <span class="stat"> XP: <strong> <span id="xpText">0</span> </strong></span>
+                <span class="stat"> Health: <strong><span id="healthText"> 100</span> </strong> </span>
+                <span class="stat">Gold: <strong><span id="goldText">50</span></strong> </span>
+                <span class="stat"> Weapon:
+                    <strong>
+                        <span id="weaponText">Stick</span>
+                        <img id="weaponImage" src="assets/weapons/stick.png" alt="Weapon" class="smallWeapon">
+                    </strong>
+                </span>
+
+
+            </div>
+            <div id="heroSection">
+                <img id="heroImage" src="assets/heroImage.jpg" alt="Hero Image">
+            </div>
+
+
+            <div id="controls"> <!----buttons/controls-->
+                <button id="button1"> Go to Store </button>
+                <button id="button2"> Go to Cave </button>
+                <button id="button3"> Bet-Shet</button>
+                <button id="button4" style="float: right;">Go to Town</button>
+            </div>
+
+            <div id="monsterStats"> <!----Monster Stats-->
+                <span class="stat"> Monster Name: <strong><span id="monsterNameText"></span> </strong> </span>
+                <span class="stat"> Monster Health: <strong><span id="monsterHealthText"> </span> </strong> </span>
+            </div>
+
+
+
+            <div id="text"> <!----Welcome Message-->
+                Welcome Dragon Slayer. <br> <br>
+                You must defeat the dragon that is preventing people from leaving the town.
+                You are in the town square.
+                <br> <br> Where do you want to go? <strong>Use the buttons above.</strong>
+            </div>
+
+            <div id="casino">
+                <h2>🎲 Down to Bet-Shet 🎲</h2>
+                <p>Guess a number between 1 and 5. If you are right, you win 20 gold! Else you loose 10 gold!</p>
+
+                <input type="number" id="guessInput" min="1" max="5" placeholder="1-5">
+                <button id="guessBtn">Try Your Luck</button>
+                <p id="casinoResult"></p>
+            </div>
         </div>
-        <div id="heroSection">
-            <img id="heroImage" src="assets/heroImage.jpg" alt="Hero Image">
-        </div>
 
-
-        <div id = "controls"> <!----buttons/controls-->
-            <button id = "button1"> Go to Store </button>
-            <button id = "button2"> Go to Cave </button>
-            <button id = "button3"> Bet-Shet</button>
-            <button id="button4" style="float: right;">Go to Town</button>
-        </div>
-
-        <div id ="monsterStats"> <!----Monster Stats-->
-            <span class = "stat"> Monster Name: <strong><span id = "monsterNameText"></span> </strong> </span>
-            <span class = "stat"> Monster Health: <strong><span id = "monsterHealthText"> </span> </strong> </span>
-        </div>
-
-        
-
-        <div id = "text"> <!----Welcome Message-->
-            Welcome Dragon Slayer. <br> <br>
-            You must defeat the dragon that is preventing people from leaving the town.
-            You are in the town square. 
-            <br> <br> Where do you want to go? <strong>Use the buttons above.</strong> 
-        </div>
-
-        <div id="casino">
-            <h2>🎲 Down to Bet-Shet 🎲</h2>
-            <p>Guess a number between 1 and 5. If you are right, you win 20 gold! Else you loose 10 gold!</p>
-            
-            <input type="number" id="guessInput" min="1" max="5" placeholder="1-5">
-            <button id="guessBtn">Try Your Luck</button>
-            <p id="casinoResult"></p>
-        </div>
-    </div>
-
-    <div id="mentorBox">
-            <strong>BitooSaaaaar: </strong> 
-            <span id="mentorText"> Greetings, young warrior. I am BitooSaaaaar, your guide-shide.<br><br>Go to the Store and Buy supplies</span>
+        <div id="mentorBox">
+            <strong>BitooSaaaaar: </strong>
+            <span id="mentorText"> Greetings, young warrior. I am BitooSaaaaar, your guide-shide.<br><br>Go to the Store
+                and Buy supplies</span>
             <button id="endGuideBtn" style="float: right;">End Guide</button>
         </div>
 
-    <div id="footerHint">
-        Tip: Defeating monsters gives you gold & XP. Use it wisely!
-    </div>
+        <div id="footerHint">
+            Tip: Defeating monsters gives you gold & XP. Use it wisely!
+        </div>
 </body>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
+
 </html>

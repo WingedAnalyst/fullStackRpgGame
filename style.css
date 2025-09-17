@@ -1,20 +1,21 @@
-
-body { /* Applying Global Style to the whole page */
-    margin: 0;
-    padding: 0;
-    font-family: georgia;
-    background-color: #1a1a1a;
-    color: #f0e6d2;
+body {
+  /* Applying Global Style to the whole page */
+  margin: 0;
+  padding: 0;
+  font-family: georgia;
+  background-color: #1a1a1a;
+  color: #f0e6d2;
 }
 
-#game { /* Game container stylling */
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 2px solid #d4af37;
-    border-radius: 10px;
-    background-color: #2a2a2a;
-    box-shadow: 0 0 20px #d4af37;
+#game {
+  /* Game container stylling */
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 2px solid #d4af37;
+  border-radius: 10px;
+  background-color: #2a2a2a;
+  box-shadow: 0 0 20px #d4af37;
 }
 
 
@@ -41,25 +42,26 @@ body { /* Applying Global Style to the whole page */
   margin-bottom: 20px;
 }
 
-#stats { /* Player stats stylling */
-    display: flex;
-    justify-content: space-around;
-    background-color: #3a3a3a;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 50px;
+#stats {
+  /* Player stats stylling */
+  display: flex;
+  justify-content: space-around;
+  background-color: #3a3a3a;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 50px;
 }
 
 .stat {
   display: flex;
-  align-items: center;  
-  gap: 6px;             
+  align-items: center;
+  gap: 6px;
 }
 
 
 /*  Button styles */
 button {
-  background-color: #8b0000; 
+  background-color: #8b0000;
   color: white;
   padding: 10px 15px;
   font-size: 16px;
@@ -69,8 +71,9 @@ button {
   transition: background-color 0.3s;
   margin-bottom: 10px;
 }
+
 button:hover {
-  background-color: #a40000; 
+  background-color: #a40000;
 }
 
 /*  Main text box */
@@ -78,7 +81,7 @@ button:hover {
   font-size: 18px;
   background-color: #222;
   padding: 15px;
-  border-left: 5px solid #d4af37; 
+  border-left: 5px solid #d4af37;
   border-radius: 5px;
 }
 
@@ -94,12 +97,12 @@ button:hover {
 
 #monsterStats {
   display: none;
-  background: linear-gradient(145deg, #5a0000, #2a0000); 
-  border: 2px solid #d4af37;  
+  background: linear-gradient(145deg, #5a0000, #2a0000);
+  border: 2px solid #d4af37;
   border-radius: 10px;
   padding: 15px;
   margin: 20px 0;
-  color: #ffd700; 
+  color: #ffd700;
   font-size: 18px;
   text-align: center;
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
@@ -114,7 +117,7 @@ button:hover {
 
 /*  monster name */
 #monsterNameText {
-  color: #ff5555;  
+  color: #ff5555;
   font-size: 20px;
   text-shadow: 1px 1px 4px black;
 }
@@ -138,15 +141,16 @@ button:hover {
 
 #mentorBox {
   display: none;
-  justify-content:space-around;
+  justify-content: space-around;
   font-size: 18px;
   background-color: #333;
-  padding: 15px;
+  padding: 60px;
   margin-bottom: 15px;
   border: 2px solid #d4af37;
   border-radius: 8px;
   box-shadow: 0 0 10px;
   color: #f3e385;
+  position: relative;
 }
 
 #mentorBox strong {
@@ -199,26 +203,26 @@ button:hover {
 }
 
 .smallWeapon {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%; 
-    border: 2px solid gold;
-    object-fit: contain; 
-    margin-left: 5px;
-    vertical-align: middle;
-    box-shadow: 0 0 5px #ffd700;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid gold;
+  object-fit: contain;
+  margin-left: 5px;
+  vertical-align: middle;
+  box-shadow: 0 0 5px #ffd700;
 }
 
 
 #weaponImage {
-  vertical-align: middle;   
+  vertical-align: middle;
   position: relative;
-  top: -2px;                
+  top: -2px;
 }
 
 #endGuideBtn {
   position: absolute;
-  bottom: 10px;         
+  top: 10px;
   left: 10px
 }
 
@@ -227,7 +231,8 @@ button:hover {
 /* Mobile portrait optimization */
 @media (max-width: 768px) {
   body {
-    font-size: 16px; /* scale text slightly */
+    font-size: 16px;
+    /* scale text slightly */
   }
 
   #game {
@@ -253,6 +258,8 @@ button:hover {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border-radius: 10%;
+
   }
 
   button {
@@ -261,12 +268,29 @@ button:hover {
     font-size: 18px;
   }
 
+
   #text {
     font-size: 16px;
   }
 
   #mentorBox {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 75px;
   }
+
+  #endGuideBtn {
+    position: static;
+    margin-top: 10px;
+    margin-right: 35%;
+    width: auto;
+  }
+
+  #gameTitle {
+    font-size: 16px;
+  }
+
 }
