@@ -141,6 +141,7 @@ nextTutorialStep();
 function update(location) {
     monsterStats.style.display = "none";
     casino.style.display = "none";
+    button4.style.display = "inline-block";
     button1.innerText = location["button text"][0];
     button2.innerText = location["button text"][1];
     button3.innerText = location["button text"][2];
