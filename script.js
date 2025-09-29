@@ -170,13 +170,13 @@ function goStore() {
     }
     update(locations[1]);
     heroImage.src = "assets/Store.png";
-    button4.style.display = "inline-block";
     if (gold < 30) {
         button2.innerText = "Sell 30 XP for 10 Gold"
         button2.onclick = sellXp
     } else {
         button2.innerText = "Buy Weapon (30 Gold)";
         button2.onclick = buyWeapon;
+        button4.style.display = "inline-block";
     }
 
 }
